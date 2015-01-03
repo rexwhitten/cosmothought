@@ -2,7 +2,7 @@
   "name": "passport-local-examples-login",
   "version": "0.0.0",
   "dependencies": {
-    "ejs": ">= 0.0.0",
+    "ejs": "^1.0.0",
     "ejs-locals": ">= 0.0.0",
     "express": "3.x.x",
     "leveldown": "^0.10.0",

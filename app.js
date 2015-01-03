@@ -4,8 +4,7 @@ var express = require('express')
   
 
 var users = [
-    { id: 1, username: 'bob', password: 'secret', email: 'bob@example.com' }
-  , { id: 2, username: 'joe', password: 'birthday', email: 'joe@example.com' }
+    { id: 1, username: 'rex', password: '!QAZxsw2', email: 'rex.whitten@gmail.com' , user_path: "http://104.236.60.234:3003/api/user/rex" }
 ];
 
 function findById(id, fn) {
@@ -27,12 +26,6 @@ function findByUsername(username, fn) {
   return fn(null, null);
 }
 
-
-// Passport session setup.
-//   To support persistent login sessions, Passport needs to be able to
-//   serialize users into and deserialize users out of the session.  Typically,
-//   this will be as simple as storing the user ID when serializing, and finding
-//   the user by ID when deserializing.
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -44,20 +37,9 @@ passport.deserializeUser(function(id, done) {
 });
 
 
-// Use the LocalStrategy within Passport.
-//   Strategies in passport require a `verify` function, which accept
-//   credentials (in this case, a username and password), and invoke a callback
-//   with a user object.  In the real world, this would query a database;
-//   however, in this example we are using a baked-in set of users.
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    // asynchronous verification, for effect...
     process.nextTick(function () {
-      
-      // Find the user by username.  If there is no user with the given
-      // username, or the password is not correct, set the user to `false` to
-      // indicate failure and set a flash message.  Otherwise, return the
-      // authenticated `user`.
       findByUsername(username, function(err, user) {
         if (err) { return done(err); }
         if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
@@ -83,24 +65,15 @@ app.configure(function() {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
-  app.use(express.static(__dirname + '/content'));
+  app.use(express.static('content/'));
 });
 
-// Application Sub Logic 
-// - Type References
-// - Extension Functions
-// - Elements and Graphs
 
-
-// Primary Application Logic 
 var _routes = require('./routes').routes(app, {
     api: {
        
     }
 });
-
-
-
 
 app.get('/', function(req, res){
   res.render('index', { user: req.user });

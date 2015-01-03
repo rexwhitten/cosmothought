@@ -1,81 +1,29 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>cosmos :|| .ready</title>
+<% if (!user) { %>
+    <%- include head/head-basic.ejs %>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.core.js" data-headjs-load="content.js"></script>
-</head>
+<% } else { %>
+    <%- include head/head-authenticated.ejs %>
+<% } %>
 <body class="cosmo">
-    <nav class="navbar navbar-fixed-top" role="navigation">
+    
+    <% if (!user) { %>
+        <%- include public/public.ejs %>
+    <% } else { %>
+        <%- include toolbar.ejs %>
+        <br/>
+        <%- include sidebar.ejs %>
+
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand cosmo-font-primary" href="#">cosmothought</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <% if (!user) { %>
-           
-                <% } else { %>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/" class="btn"><i class="fa fa-home  fa-2x"></i></a></li>
-                        <li><a href="/account" class="btn"><i class="fa fa-wrench fa-2x"></i></a></li>
-                        <li><a href="/account" class="btn"><i class="fa fa-user  fa-2x"></i></a></li>
-                        <li><a href="/help" class="btn"><i class="fa fa-question-circle  fa-2x"></i></a></li>
-                    </ul>
-                <% } %>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                    <li class="active cosmo-item"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                    <li class="cosmo-item"><a href="#">Reports</a></li>
-                    <li class="cosmo-item"><a href="#">Analytics</a></li>
-                    <li class="cosmo-item"><a href="#">Export</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li>
-                        <a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a>
-                        <ul class="" style="list-style-type: none">
-                            <li><a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a></li>
-                            <li>
-                                <a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a>
-                                <ul class="" style="list-style-type: none">
-                                    <li><a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a></li>
-                                    <li><a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a></li>
-                                    <li><a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a></li>
-                                    <li><a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a></li>
-                            <li><a href="#"><i class="fa fa-folder-o fa-2x"></i>Document</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main cosmo-content">
-                <script type="text/javascript">
-                
-
-                </script>
+            <div class="row">
                 <%- body %>
             </div>
         </div>
-    </div>
+
+        <%- include footbar.ejs %>
+    <% } %>
+
+
 </body>
 </html>
