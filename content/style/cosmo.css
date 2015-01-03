@@ -1,0 +1,80 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Sarpanch);
+@import url(http://fonts.googleapis.com/css?family=Sarpanch:400,800);
+
+body {
+    color: #0aa2fa;
+}
+
+
+
+a {
+    color: #0aa2fa;
+}
+
+
+.cosmo {
+    min-height: 760px;
+    background: #3f4c6b; /* Old browsers */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+.cosmo-active {
+    background: rgb(238,238,238); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(173,173,173,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(173,173,173,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(173,173,173,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(173,173,173,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(173,173,173,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(173,173,173,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#adadad',GradientType=0 ); /* IE6-9 */
+}
+
+.cosmo-font-primary {
+    font-family: 'Sarpanch', sans-serif;
+    font-size: x-large;
+    font-weight: 900;
+    color: #1b1b1b;
+}
+
+.cosmo-font-secondary {
+    font-family: 'Sarpanch', sans-serif;
+}
+
+.cosmo-application-name {
+
+    font-family: 'Sarpanch', sans-serif;
+}
+
+.cosmo-search {
+    border: 2px solid #b6ff00 !important;
+    background-color: #3b3a3 !important;;
+    color: #b6ff00;
+}
+
+.cosmo-item {
+    border-radius: 4px;
+    border-right: 4px solid #0aa2fa;
+    border-top: 4px solid rgb(238,238,238);
+    font-weight: 800;
+
+}
+
+.cosmo-content {
+  
+}
+
+.cosmo-control-item {
+    background: rgb(247, 243, 243);
+}
+
+.cosmo-editor{
+
+
+}
