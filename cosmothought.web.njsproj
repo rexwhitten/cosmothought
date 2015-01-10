@@ -1,70 +1,647 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <SchemaVersion>2.0</SchemaVersion>
-        <ProjectGuid>{3d3db26a-cc53-48bd-8137-6e59996816ad}</ProjectGuid>
-        <ProjectHome />
-        <ProjectView>ShowAllFiles</ProjectView>
-        <StartupFile>app.js</StartupFile>
-        <WorkingDirectory>.</WorkingDirectory>
-        <OutputPath>.</OutputPath>
-        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
-    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
-    <ItemGroup>
-        <Content Include="package.json" />
-        <Content Include="readme.md" />
-        <Compile Include="app.js" />
-        <Content Include="views\account.ejs" />
-        <Content Include="views\index.ejs" />
-        <Content Include="views\layout.ejs" />
-        <Content Include="views\login.ejs" />
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="views" />
-    </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
-    <ProjectExtensions>
-        <VisualStudio>
-          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-            <WebProjectProperties>
-              <UseIIS>False</UseIIS>
-              <AutoAssignPort>True</AutoAssignPort>
-              <DevelopmentServerPort>0</DevelopmentServerPort>
-              <DevelopmentServerVPath>/</DevelopmentServerVPath>
-              <IISUrl>http://localhost:48022/</IISUrl>
-              <NTLMAuthentication>False</NTLMAuthentication>
-              <UseCustomServer>True</UseCustomServer>
-              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
-              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-            </WebProjectProperties>
-          </FlavorProperties>
-          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
-            <WebProjectProperties>
-              <StartPageUrl>
-              </StartPageUrl>
-              <StartAction>CurrentPage</StartAction>
-              <AspNetDebugging>True</AspNetDebugging>
-              <SilverlightDebugging>False</SilverlightDebugging>
-              <NativeDebugging>False</NativeDebugging>
-              <SQLDebugging>False</SQLDebugging>
-              <ExternalProgram>
-              </ExternalProgram>
-              <StartExternalURL>
-              </StartExternalURL>
-              <StartCmdLineArguments>
-              </StartCmdLineArguments>
-              <StartWorkingDirectory>
-              </StartWorkingDirectory>
-              <EnableENC>False</EnableENC>
-              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
-            </WebProjectProperties>
-          </FlavorProperties>
-        </VisualStudio>
-    </ProjectExtensions>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3d3db26a-cc53-48bd-8137-6e59996816ad}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>app.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\amd\bootstrap3-wysihtml5.all.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\amd\bootstrap3-wysihtml5.all.min.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\amd\commands.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\amd\handlebars.runtime.amd.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\amd\templates.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\amd\wysihtml5.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\commands.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.ar-AR.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.bg-BG.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.ca-CT.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.cs-CZ.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.da-DK.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.de-DE.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.el-GR.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.en-US.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.es-AR.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.es-ES.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.fr-FR.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.hr-HR.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.hu-HU.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.il-HE.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.it-IT.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.ja-JP.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.ko-KR.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.lt-LT.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.mo-MD.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.nb-NB.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.nl-NL.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.pl-PL.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.pt-BR.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.ru-RU.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.sk-SK.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.sv-SE.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.tr-TR.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.ua-UA.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.zh-CN.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\bootstrap-wysihtml5.zh-TW.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\dist\templates.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\examples\main-dev.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\examples\main.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\examples\start-dev.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\examples\start.js" />
+    <Compile Include="bower_components\bootstrap3-wysihtml5-bower\karma.conf.js" />
+    <Compile Include="bower_components\bootstrap\dist\js\npm.js" />
+    <Compile Include="bower_components\bootstrap\Gruntfile.js" />
+    <Compile Include="bower_components\bootstrap\grunt\bs-commonjs-generator.js" />
+    <Compile Include="bower_components\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Compile Include="bower_components\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Compile Include="bower_components\bootstrap\js\affix.js" />
+    <Compile Include="bower_components\bootstrap\js\alert.js" />
+    <Compile Include="bower_components\bootstrap\js\button.js" />
+    <Compile Include="bower_components\bootstrap\js\carousel.js" />
+    <Compile Include="bower_components\bootstrap\js\collapse.js" />
+    <Compile Include="bower_components\bootstrap\js\dropdown.js" />
+    <Compile Include="bower_components\bootstrap\js\modal.js" />
+    <Compile Include="bower_components\bootstrap\js\popover.js" />
+    <Compile Include="bower_components\bootstrap\js\scrollspy.js" />
+    <Compile Include="bower_components\bootstrap\js\tab.js" />
+    <Compile Include="bower_components\bootstrap\js\tooltip.js" />
+    <Compile Include="bower_components\bootstrap\js\transition.js" />
+    <Compile Include="bower_components\doc-ready\doc-ready.js" />
+    <Compile Include="bower_components\eventEmitter\EventEmitter.js" />
+    <Compile Include="bower_components\eventEmitter\EventEmitter.min.js" />
+    <Compile Include="bower_components\eventie\eventie.js" />
+    <Compile Include="bower_components\get-size\get-size.js" />
+    <Compile Include="bower_components\get-style-property\get-style-property.js" />
+    <Compile Include="bower_components\handlebars\handlebars.amd.js" />
+    <Compile Include="bower_components\handlebars\handlebars.amd.min.js" />
+    <Compile Include="bower_components\handlebars\handlebars.js" />
+    <Compile Include="bower_components\handlebars\handlebars.min.js" />
+    <Compile Include="bower_components\handlebars\handlebars.runtime.amd.js" />
+    <Compile Include="bower_components\handlebars\handlebars.runtime.amd.min.js" />
+    <Compile Include="bower_components\handlebars\handlebars.runtime.js" />
+    <Compile Include="bower_components\handlebars\handlebars.runtime.min.js" />
+    <Compile Include="bower_components\jquery\src\ajax.js" />
+    <Compile Include="bower_components\jquery\src\ajax\jsonp.js" />
+    <Compile Include="bower_components\jquery\src\ajax\load.js" />
+    <Compile Include="bower_components\jquery\src\ajax\parseJSON.js" />
+    <Compile Include="bower_components\jquery\src\ajax\parseXML.js" />
+    <Compile Include="bower_components\jquery\src\ajax\script.js" />
+    <Compile Include="bower_components\jquery\src\ajax\var\nonce.js" />
+    <Compile Include="bower_components\jquery\src\ajax\var\rquery.js" />
+    <Compile Include="bower_components\jquery\src\ajax\xhr.js" />
+    <Compile Include="bower_components\jquery\src\attributes.js" />
+    <Compile Include="bower_components\jquery\src\attributes\attr.js" />
+    <Compile Include="bower_components\jquery\src\attributes\classes.js" />
+    <Compile Include="bower_components\jquery\src\attributes\prop.js" />
+    <Compile Include="bower_components\jquery\src\attributes\support.js" />
+    <Compile Include="bower_components\jquery\src\attributes\val.js" />
+    <Compile Include="bower_components\jquery\src\callbacks.js" />
+    <Compile Include="bower_components\jquery\src\core.js" />
+    <Compile Include="bower_components\jquery\src\core\access.js" />
+    <Compile Include="bower_components\jquery\src\core\init.js" />
+    <Compile Include="bower_components\jquery\src\core\parseHTML.js" />
+    <Compile Include="bower_components\jquery\src\core\ready.js" />
+    <Compile Include="bower_components\jquery\src\core\var\rsingleTag.js" />
+    <Compile Include="bower_components\jquery\src\css.js" />
+    <Compile Include="bower_components\jquery\src\css\addGetHookIf.js" />
+    <Compile Include="bower_components\jquery\src\css\curCSS.js" />
+    <Compile Include="bower_components\jquery\src\css\defaultDisplay.js" />
+    <Compile Include="bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Compile Include="bower_components\jquery\src\css\support.js" />
+    <Compile Include="bower_components\jquery\src\css\swap.js" />
+    <Compile Include="bower_components\jquery\src\css\var\cssExpand.js" />
+    <Compile Include="bower_components\jquery\src\css\var\getStyles.js" />
+    <Compile Include="bower_components\jquery\src\css\var\isHidden.js" />
+    <Compile Include="bower_components\jquery\src\css\var\rmargin.js" />
+    <Compile Include="bower_components\jquery\src\css\var\rnumnonpx.js" />
+    <Compile Include="bower_components\jquery\src\data.js" />
+    <Compile Include="bower_components\jquery\src\data\accepts.js" />
+    <Compile Include="bower_components\jquery\src\data\Data.js" />
+    <Compile Include="bower_components\jquery\src\data\var\data_priv.js" />
+    <Compile Include="bower_components\jquery\src\data\var\data_user.js" />
+    <Compile Include="bower_components\jquery\src\deferred.js" />
+    <Compile Include="bower_components\jquery\src\deprecated.js" />
+    <Compile Include="bower_components\jquery\src\dimensions.js" />
+    <Compile Include="bower_components\jquery\src\effects.js" />
+    <Compile Include="bower_components\jquery\src\effects\animatedSelector.js" />
+    <Compile Include="bower_components\jquery\src\effects\Tween.js" />
+    <Compile Include="bower_components\jquery\src\event.js" />
+    <Compile Include="bower_components\jquery\src\event\alias.js" />
+    <Compile Include="bower_components\jquery\src\event\support.js" />
+    <Compile Include="bower_components\jquery\src\exports\amd.js" />
+    <Compile Include="bower_components\jquery\src\exports\global.js" />
+    <Compile Include="bower_components\jquery\src\intro.js" />
+    <Compile Include="bower_components\jquery\src\jquery.js" />
+    <Compile Include="bower_components\jquery\src\manipulation.js" />
+    <Compile Include="bower_components\jquery\src\manipulation\support.js" />
+    <Compile Include="bower_components\jquery\src\manipulation\var\rcheckableType.js" />
+    <Compile Include="bower_components\jquery\src\manipulation\_evalUrl.js" />
+    <Compile Include="bower_components\jquery\src\offset.js" />
+    <Compile Include="bower_components\jquery\src\outro.js" />
+    <Compile Include="bower_components\jquery\src\queue.js" />
+    <Compile Include="bower_components\jquery\src\queue\delay.js" />
+    <Compile Include="bower_components\jquery\src\selector-native.js" />
+    <Compile Include="bower_components\jquery\src\selector-sizzle.js" />
+    <Compile Include="bower_components\jquery\src\selector.js" />
+    <Compile Include="bower_components\jquery\src\serialize.js" />
+    <Compile Include="bower_components\jquery\src\sizzle\dist\sizzle.js" />
+    <Compile Include="bower_components\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Compile Include="bower_components\jquery\src\traversing.js" />
+    <Compile Include="bower_components\jquery\src\traversing\findFilter.js" />
+    <Compile Include="bower_components\jquery\src\traversing\var\rneedsContext.js" />
+    <Compile Include="bower_components\jquery\src\var\arr.js" />
+    <Compile Include="bower_components\jquery\src\var\class2type.js" />
+    <Compile Include="bower_components\jquery\src\var\concat.js" />
+    <Compile Include="bower_components\jquery\src\var\hasOwn.js" />
+    <Compile Include="bower_components\jquery\src\var\indexOf.js" />
+    <Compile Include="bower_components\jquery\src\var\pnum.js" />
+    <Compile Include="bower_components\jquery\src\var\push.js" />
+    <Compile Include="bower_components\jquery\src\var\rnotwhite.js" />
+    <Compile Include="bower_components\jquery\src\var\slice.js" />
+    <Compile Include="bower_components\jquery\src\var\strundefined.js" />
+    <Compile Include="bower_components\jquery\src\var\support.js" />
+    <Compile Include="bower_components\jquery\src\var\toString.js" />
+    <Compile Include="bower_components\jquery\src\wrap.js" />
+    <Compile Include="bower_components\masonry\masonry.js" />
+    <Compile Include="bower_components\matches-selector\matches-selector.js" />
+    <Compile Include="bower_components\matches-selector\tests.js" />
+    <Compile Include="bower_components\outlayer\item.js" />
+    <Compile Include="bower_components\outlayer\outlayer.js" />
+    <Compile Include="bower_components\rangy-1.3\rangy-core.js" />
+    <Compile Include="bower_components\rangy-1.3\rangy-cssclassapplier.js" />
+    <Compile Include="bower_components\rangy-1.3\rangy-highlighter.js" />
+    <Compile Include="bower_components\rangy-1.3\rangy-selectionsaverestore.js" />
+    <Compile Include="bower_components\rangy-1.3\rangy-serializer.js" />
+    <Compile Include="bower_components\rangy-1.3\rangy-textrange.js" />
+    <Compile Include="bower_components\rangy-1.3\uncompressed\rangy-core.js" />
+    <Compile Include="bower_components\rangy-1.3\uncompressed\rangy-cssclassapplier.js" />
+    <Compile Include="bower_components\rangy-1.3\uncompressed\rangy-highlighter.js" />
+    <Compile Include="bower_components\rangy-1.3\uncompressed\rangy-selectionsaverestore.js" />
+    <Compile Include="bower_components\rangy-1.3\uncompressed\rangy-serializer.js" />
+    <Compile Include="bower_components\rangy-1.3\uncompressed\rangy-textrange.js" />
+    <Compile Include="bower_components\wysihtml5x\dist\wysihtml5x-toolbar.js" />
+    <Compile Include="bower_components\wysihtml5x\dist\wysihtml5x-toolbar.min.js" />
+    <Compile Include="bower_components\wysihtml5x\dist\wysihtml5x.js" />
+    <Compile Include="bower_components\wysihtml5x\dist\wysihtml5x.min.js" />
+    <Compile Include="bower_components\wysihtml5x\Gruntfile.js" />
+    <Compile Include="bower_components\wysihtml5x\lib\base\base.js" />
+    <Compile Include="bower_components\wysihtml5x\lib\rangy\rangy-core.js" />
+    <Compile Include="bower_components\wysihtml5x\lib\rangy\rangy-selectionsaverestore.js" />
+    <Compile Include="bower_components\wysihtml5x\parser_rules\advanced.js" />
+    <Compile Include="bower_components\wysihtml5x\parser_rules\advanced_unwrap.js" />
+    <Compile Include="bower_components\wysihtml5x\parser_rules\simple.js" />
+    <Compile Include="content\app\app.js" />
+    <Compile Include="content\content.js" />
+    <Compile Include="content\lib\common\headjs\head.js" />
+    <Compile Include="content\lib\common\headjs\head.min.js" />
+    <Compile Include="content\lib\common\jquery\jquery.js" />
+    <Compile Include="content\lib\common\jquery\jquery.min.js" />
+    <Compile Include="content\lib\editors\wyswig\bootstrap3-wysihtml5.all.js" />
+    <Compile Include="content\lib\editors\wyswig\bootstrap3-wysihtml5.all.min.js" />
+    <Compile Include="content\lib\editors\wyswig\bootstrap3-wysihtml5.js" />
+    <Compile Include="content\lib\editors\wyswig\bootstrap3-wysihtml5.min.js" />
+    <Compile Include="content\lib\ui\bootstrap\bootstrap.js" />
+    <Compile Include="content\lib\ui\bootstrap\bootstrap.min.js" />
+    <Compile Include="content\lib\ui\masonry\masonry.pkgd.js" />
+    <Compile Include="content\lib\ui\masonry\masonry.pkgd.min.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="routes\_api.js" />
+    <Content Include="apidb\000005.ldb" />
+    <Content Include="apidb\000010.log" />
+    <Content Include="apidb\CURRENT" />
+    <Content Include="apidb\event\000007.log" />
+    <Content Include="apidb\event\CURRENT" />
+    <Content Include="apidb\event\LOCK" />
+    <Content Include="apidb\event\LOG" />
+    <Content Include="apidb\event\LOG.old" />
+    <Content Include="apidb\event\MANIFEST-000006" />
+    <Content Include="apidb\LOCK" />
+    <Content Include="apidb\LOG" />
+    <Content Include="apidb\LOG.old" />
+    <Content Include="apidb\MANIFEST-000009" />
+    <Content Include="apidb\user\000007.log" />
+    <Content Include="apidb\user\CURRENT" />
+    <Content Include="apidb\user\LOCK" />
+    <Content Include="apidb\user\LOG" />
+    <Content Include="apidb\user\LOG.old" />
+    <Content Include="apidb\user\MANIFEST-000006" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\.bower.json" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\bower.json" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\examples\index-require-dev.html" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\examples\index-require.html" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\index-all.html" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\index-dev.html" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\index-multi-dev.html" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\index.html" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\LICENCE" />
+    <Content Include="bower_components\bootstrap3-wysihtml5-bower\README.md" />
+    <Content Include="bower_components\bootstrap\.bower.json" />
+    <Content Include="bower_components\bootstrap\bower.json" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bower_components\bootstrap\grunt\.jshintrc" />
+    <Content Include="bower_components\bootstrap\grunt\configBridge.json" />
+    <Content Include="bower_components\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="bower_components\bootstrap\js\.jscsrc" />
+    <Content Include="bower_components\bootstrap\js\.jshintrc" />
+    <Content Include="bower_components\bootstrap\less\.csscomb.json" />
+    <Content Include="bower_components\bootstrap\less\.csslintrc" />
+    <Content Include="bower_components\bootstrap\less\alerts.less" />
+    <Content Include="bower_components\bootstrap\less\badges.less" />
+    <Content Include="bower_components\bootstrap\less\bootstrap.less" />
+    <Content Include="bower_components\bootstrap\less\breadcrumbs.less" />
+    <Content Include="bower_components\bootstrap\less\button-groups.less" />
+    <Content Include="bower_components\bootstrap\less\buttons.less" />
+    <Content Include="bower_components\bootstrap\less\carousel.less" />
+    <Content Include="bower_components\bootstrap\less\close.less" />
+    <Content Include="bower_components\bootstrap\less\code.less" />
+    <Content Include="bower_components\bootstrap\less\component-animations.less" />
+    <Content Include="bower_components\bootstrap\less\dropdowns.less" />
+    <Content Include="bower_components\bootstrap\less\forms.less" />
+    <Content Include="bower_components\bootstrap\less\glyphicons.less" />
+    <Content Include="bower_components\bootstrap\less\grid.less" />
+    <Content Include="bower_components\bootstrap\less\input-groups.less" />
+    <Content Include="bower_components\bootstrap\less\jumbotron.less" />
+    <Content Include="bower_components\bootstrap\less\labels.less" />
+    <Content Include="bower_components\bootstrap\less\list-group.less" />
+    <Content Include="bower_components\bootstrap\less\media.less" />
+    <Content Include="bower_components\bootstrap\less\mixins.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\alerts.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\buttons.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\center-block.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\forms.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\gradients.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\grid.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\image.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\labels.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\list-group.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\opacity.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\pagination.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\panels.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\resize.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\size.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\table-row.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="bower_components\bootstrap\less\modals.less" />
+    <Content Include="bower_components\bootstrap\less\navbar.less" />
+    <Content Include="bower_components\bootstrap\less\navs.less" />
+    <Content Include="bower_components\bootstrap\less\normalize.less" />
+    <Content Include="bower_components\bootstrap\less\pager.less" />
+    <Content Include="bower_components\bootstrap\less\pagination.less" />
+    <Content Include="bower_components\bootstrap\less\panels.less" />
+    <Content Include="bower_components\bootstrap\less\popovers.less" />
+    <Content Include="bower_components\bootstrap\less\print.less" />
+    <Content Include="bower_components\bootstrap\less\progress-bars.less" />
+    <Content Include="bower_components\bootstrap\less\responsive-embed.less" />
+    <Content Include="bower_components\bootstrap\less\responsive-utilities.less" />
+    <Content Include="bower_components\bootstrap\less\scaffolding.less" />
+    <Content Include="bower_components\bootstrap\less\tables.less" />
+    <Content Include="bower_components\bootstrap\less\theme.less" />
+    <Content Include="bower_components\bootstrap\less\thumbnails.less" />
+    <Content Include="bower_components\bootstrap\less\tooltip.less" />
+    <Content Include="bower_components\bootstrap\less\type.less" />
+    <Content Include="bower_components\bootstrap\less\utilities.less" />
+    <Content Include="bower_components\bootstrap\less\variables.less" />
+    <Content Include="bower_components\bootstrap\less\wells.less" />
+    <Content Include="bower_components\bootstrap\LICENSE" />
+    <Content Include="bower_components\bootstrap\package.json" />
+    <Content Include="bower_components\bootstrap\README.md" />
+    <Content Include="bower_components\components-font-awesome\.bower.json" />
+    <Content Include="bower_components\components-font-awesome\.gitignore" />
+    <Content Include="bower_components\components-font-awesome\bower.json" />
+    <Content Include="bower_components\components-font-awesome\component.json" />
+    <Content Include="bower_components\components-font-awesome\composer.json" />
+    <Content Include="bower_components\components-font-awesome\css\font-awesome.css" />
+    <Content Include="bower_components\components-font-awesome\css\font-awesome.min.css" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="bower_components\components-font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="bower_components\components-font-awesome\less\bordered-pulled.less" />
+    <Content Include="bower_components\components-font-awesome\less\core.less" />
+    <Content Include="bower_components\components-font-awesome\less\fixed-width.less" />
+    <Content Include="bower_components\components-font-awesome\less\font-awesome.less" />
+    <Content Include="bower_components\components-font-awesome\less\icons.less" />
+    <Content Include="bower_components\components-font-awesome\less\larger.less" />
+    <Content Include="bower_components\components-font-awesome\less\list.less" />
+    <Content Include="bower_components\components-font-awesome\less\mixins.less" />
+    <Content Include="bower_components\components-font-awesome\less\path.less" />
+    <Content Include="bower_components\components-font-awesome\less\rotated-flipped.less" />
+    <Content Include="bower_components\components-font-awesome\less\spinning.less" />
+    <Content Include="bower_components\components-font-awesome\less\stacked.less" />
+    <Content Include="bower_components\components-font-awesome\less\variables.less" />
+    <Content Include="bower_components\components-font-awesome\Makefile" />
+    <Content Include="bower_components\components-font-awesome\README.md" />
+    <Content Include="bower_components\components-font-awesome\scss\font-awesome.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_core.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_fixed-width.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_icons.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_larger.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_list.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_mixins.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_path.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_spinning.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_stacked.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_variables.scss" />
+    <Content Include="bower_components\doc-ready\.bower.json" />
+    <Content Include="bower_components\doc-ready\bower.json" />
+    <Content Include="bower_components\doc-ready\README.md" />
+    <Content Include="bower_components\eventEmitter\.bower.json" />
+    <Content Include="bower_components\eventEmitter\bower.json" />
+    <Content Include="bower_components\eventEmitter\component.json" />
+    <Content Include="bower_components\eventEmitter\README.md" />
+    <Content Include="bower_components\eventie\.bower.json" />
+    <Content Include="bower_components\eventie\bower.json" />
+    <Content Include="bower_components\eventie\README.md" />
+    <Content Include="bower_components\eventie\test.html" />
+    <Content Include="bower_components\font-awesome\.bower.json" />
+    <Content Include="bower_components\font-awesome\.gitignore" />
+    <Content Include="bower_components\font-awesome\.npmignore" />
+    <Content Include="bower_components\font-awesome\bower.json" />
+    <Content Include="bower_components\font-awesome\less\bordered-pulled.less" />
+    <Content Include="bower_components\font-awesome\less\core.less" />
+    <Content Include="bower_components\font-awesome\less\extras.less" />
+    <Content Include="bower_components\font-awesome\less\fixed-width.less" />
+    <Content Include="bower_components\font-awesome\less\font-awesome.less" />
+    <Content Include="bower_components\font-awesome\less\icons.less" />
+    <Content Include="bower_components\font-awesome\less\larger.less" />
+    <Content Include="bower_components\font-awesome\less\list.less" />
+    <Content Include="bower_components\font-awesome\less\mixins.less" />
+    <Content Include="bower_components\font-awesome\less\path.less" />
+    <Content Include="bower_components\font-awesome\less\rotated-flipped.less" />
+    <Content Include="bower_components\font-awesome\less\spinning.less" />
+    <Content Include="bower_components\font-awesome\less\stacked.less" />
+    <Content Include="bower_components\font-awesome\less\variables.less" />
+    <Content Include="bower_components\font-awesome\scss\font-awesome.scss" />
+    <Content Include="bower_components\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="bower_components\font-awesome\scss\_core.scss" />
+    <Content Include="bower_components\font-awesome\scss\_extras.scss" />
+    <Content Include="bower_components\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="bower_components\font-awesome\scss\_icons.scss" />
+    <Content Include="bower_components\font-awesome\scss\_larger.scss" />
+    <Content Include="bower_components\font-awesome\scss\_list.scss" />
+    <Content Include="bower_components\font-awesome\scss\_mixins.scss" />
+    <Content Include="bower_components\font-awesome\scss\_path.scss" />
+    <Content Include="bower_components\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="bower_components\font-awesome\scss\_spinning.scss" />
+    <Content Include="bower_components\font-awesome\scss\_stacked.scss" />
+    <Content Include="bower_components\font-awesome\scss\_variables.scss" />
+    <Content Include="bower_components\get-size\.bower.json" />
+    <Content Include="bower_components\get-size\bower.json" />
+    <Content Include="bower_components\get-size\index.html" />
+    <Content Include="bower_components\get-size\README.md" />
+    <Content Include="bower_components\get-style-property\.bower.json" />
+    <Content Include="bower_components\get-style-property\bower.json" />
+    <Content Include="bower_components\get-style-property\component.json" />
+    <Content Include="bower_components\get-style-property\package.json" />
+    <Content Include="bower_components\get-style-property\README.md" />
+    <Content Include="bower_components\handlebars\.bower.json" />
+    <Content Include="bower_components\handlebars\.gitignore" />
+    <Content Include="bower_components\handlebars\bower.json" />
+    <Content Include="bower_components\handlebars\component.json" />
+    <Content Include="bower_components\handlebars\composer.json" />
+    <Content Include="bower_components\handlebars\handlebars-source.gemspec" />
+    <Content Include="bower_components\handlebars\handlebars.js.nuspec" />
+    <Content Include="bower_components\handlebars\lib\handlebars\source.rb" />
+    <Content Include="bower_components\handlebars\README.md" />
+    <Content Include="bower_components\jquery\.bower.json" />
+    <Content Include="bower_components\jquery\bower.json" />
+    <Content Include="bower_components\jquery\MIT-LICENSE.txt" />
+    <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="bower_components\masonry\.bower.json" />
+    <Content Include="bower_components\masonry\bower.json" />
+    <Content Include="bower_components\masonry\changelog.md" />
+    <Content Include="bower_components\masonry\README.mdown" />
+    <Content Include="bower_components\matches-selector\.bower.json" />
+    <Content Include="bower_components\matches-selector\bower.json" />
+    <Content Include="bower_components\matches-selector\README.md" />
+    <Content Include="bower_components\matches-selector\tests.html" />
+    <Content Include="bower_components\outlayer\.bower.json" />
+    <Content Include="bower_components\outlayer\bower.json" />
+    <Content Include="bower_components\outlayer\package.json" />
+    <Content Include="bower_components\outlayer\README.md" />
+    <Content Include="bower_components\rangy-1.3\.bower.json" />
+    <Content Include="bower_components\rangy-1.3\bower.json" />
+    <Content Include="bower_components\rangy-1.3\README" />
+    <Content Include="bower_components\wysihtml5x\.bower.json" />
+    <Content Include="bower_components\wysihtml5x\bower.json" />
+    <Content Include="bower_components\wysihtml5x\CHANGELOG.textile" />
+    <Content Include="bower_components\wysihtml5x\dist\wysihtml5x-toolbar.min.map" />
+    <Content Include="bower_components\wysihtml5x\dist\wysihtml5x.min.map" />
+    <Content Include="bower_components\wysihtml5x\LICENSE" />
+    <Content Include="bower_components\wysihtml5x\package.json" />
+    <Content Include="bower_components\wysihtml5x\README.markdown" />
+    <Content Include="content\lib\common\headjs\head.load.min.js.map" />
+    <Content Include="content\lib\common\headjs\head.min.js.map" />
+    <Content Include="content\lib\common\jquery\jquery.min.map" />
+    <Content Include="content\lib\editors\wyswig\bootstrap3-wysihtml5.css" />
+    <Content Include="content\lib\editors\wyswig\bootstrap3-wysihtml5.min.css" />
+    <Content Include="content\lib\fonts\fontawesome-webfont.eot" />
+    <Content Include="content\lib\fonts\fontawesome-webfont.svg" />
+    <Content Include="content\lib\fonts\fontawesome-webfont.ttf" />
+    <Content Include="content\lib\fonts\fontawesome-webfont.woff" />
+    <Content Include="content\lib\fonts\FontAwesome.otf" />
+    <Content Include="content\lib\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\lib\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\lib\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\lib\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="content\lib\ui\font-awesome\font-awesome.css" />
+    <Content Include="content\lib\ui\font-awesome\font-awesome.min.css" />
+    <Content Include="content\style\bootstrap\bootstrap-theme.css" />
+    <Content Include="content\style\bootstrap\bootstrap-theme.css.map" />
+    <Content Include="content\style\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="content\style\bootstrap\bootstrap.css" />
+    <Content Include="content\style\bootstrap\bootstrap.css.map" />
+    <Content Include="content\style\bootstrap\bootstrap.min.css" />
+    <Content Include="content\style\cosmo.basic.css" />
+    <Content Include="content\style\cosmo.css" />
+    <Content Include="content\style\cosmo.layout.css" />
+    <Content Include="content\style\cosmo.login.css" />
+    <Content Include="content\style\fonts\fontawesome-webfont.eot" />
+    <Content Include="content\style\fonts\fontawesome-webfont.svg" />
+    <Content Include="content\style\fonts\fontawesome-webfont.ttf" />
+    <Content Include="content\style\fonts\fontawesome-webfont.woff" />
+    <Content Include="content\style\fonts\FontAwesome.otf" />
+    <Content Include="content\style\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\style\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\style\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\style\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="package.json" />
+    <Content Include="readme.md" />
+    <Compile Include="app.js" />
+    <Content Include="views\account.ejs" />
+    <Content Include="views\footbar.ejs" />
+    <Content Include="views\head\head-authenticated.ejs" />
+    <Content Include="views\head\head-login.ejs" />
+    <Content Include="views\head\head-basic.ejs" />
+    <Content Include="views\index.ejs" />
+    <Content Include="views\layout.ejs" />
+    <Content Include="views\login.ejs" />
+    <Content Include="views\public\public.ejs" />
+    <Content Include="views\public\public.footer.ejs" />
+    <Content Include="views\sidebar.ejs" />
+    <Content Include="views\toolbar.ejs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="apidb\" />
+    <Folder Include="apidb\event\" />
+    <Folder Include="apidb\user\" />
+    <Folder Include="bower_components\" />
+    <Folder Include="bower_components\bootstrap3-wysihtml5-bower\" />
+    <Folder Include="bower_components\bootstrap3-wysihtml5-bower\dist\" />
+    <Folder Include="bower_components\bootstrap3-wysihtml5-bower\dist\amd\" />
+    <Folder Include="bower_components\bootstrap3-wysihtml5-bower\dist\locales\" />
+    <Folder Include="bower_components\bootstrap3-wysihtml5-bower\examples\" />
+    <Folder Include="bower_components\bootstrap\" />
+    <Folder Include="bower_components\bootstrap\dist\" />
+    <Folder Include="bower_components\bootstrap\dist\css\" />
+    <Folder Include="bower_components\bootstrap\dist\js\" />
+    <Folder Include="bower_components\bootstrap\fonts\" />
+    <Folder Include="bower_components\bootstrap\grunt\" />
+    <Folder Include="bower_components\bootstrap\js\" />
+    <Folder Include="bower_components\bootstrap\less\" />
+    <Folder Include="bower_components\bootstrap\less\mixins\" />
+    <Folder Include="bower_components\components-font-awesome\" />
+    <Folder Include="bower_components\components-font-awesome\css\" />
+    <Folder Include="bower_components\components-font-awesome\fonts\" />
+    <Folder Include="bower_components\components-font-awesome\less\" />
+    <Folder Include="bower_components\components-font-awesome\scss\" />
+    <Folder Include="bower_components\doc-ready\" />
+    <Folder Include="bower_components\eventEmitter\" />
+    <Folder Include="bower_components\eventie\" />
+    <Folder Include="bower_components\font-awesome\" />
+    <Folder Include="bower_components\font-awesome\css\" />
+    <Folder Include="bower_components\font-awesome\less\" />
+    <Folder Include="bower_components\font-awesome\scss\" />
+    <Folder Include="bower_components\get-size\" />
+    <Folder Include="bower_components\get-style-property\" />
+    <Folder Include="bower_components\handlebars\" />
+    <Folder Include="bower_components\handlebars\lib\" />
+    <Folder Include="bower_components\handlebars\lib\handlebars\" />
+    <Folder Include="bower_components\jquery\" />
+    <Folder Include="bower_components\jquery\dist\" />
+    <Folder Include="bower_components\jquery\src\" />
+    <Folder Include="bower_components\jquery\src\ajax\" />
+    <Folder Include="bower_components\jquery\src\ajax\var\" />
+    <Folder Include="bower_components\jquery\src\attributes\" />
+    <Folder Include="bower_components\jquery\src\core\" />
+    <Folder Include="bower_components\jquery\src\core\var\" />
+    <Folder Include="bower_components\jquery\src\css\" />
+    <Folder Include="bower_components\jquery\src\css\var\" />
+    <Folder Include="bower_components\jquery\src\data\" />
+    <Folder Include="bower_components\jquery\src\data\var\" />
+    <Folder Include="bower_components\jquery\src\effects\" />
+    <Folder Include="bower_components\jquery\src\event\" />
+    <Folder Include="bower_components\jquery\src\exports\" />
+    <Folder Include="bower_components\jquery\src\manipulation\" />
+    <Folder Include="bower_components\jquery\src\manipulation\var\" />
+    <Folder Include="bower_components\jquery\src\queue\" />
+    <Folder Include="bower_components\jquery\src\sizzle\" />
+    <Folder Include="bower_components\jquery\src\sizzle\dist\" />
+    <Folder Include="bower_components\jquery\src\traversing\" />
+    <Folder Include="bower_components\jquery\src\traversing\var\" />
+    <Folder Include="bower_components\jquery\src\var\" />
+    <Folder Include="bower_components\masonry\" />
+    <Folder Include="bower_components\masonry\dist\" />
+    <Folder Include="bower_components\matches-selector\" />
+    <Folder Include="bower_components\outlayer\" />
+    <Folder Include="bower_components\rangy-1.3\" />
+    <Folder Include="bower_components\rangy-1.3\uncompressed\" />
+    <Folder Include="bower_components\wysihtml5x\" />
+    <Folder Include="bower_components\wysihtml5x\dist\" />
+    <Folder Include="bower_components\wysihtml5x\lib\" />
+    <Folder Include="bower_components\wysihtml5x\lib\base\" />
+    <Folder Include="bower_components\wysihtml5x\lib\rangy\" />
+    <Folder Include="bower_components\wysihtml5x\parser_rules\" />
+    <Folder Include="content\" />
+    <Folder Include="content\app\" />
+    <Folder Include="content\lib\" />
+    <Folder Include="content\lib\common\" />
+    <Folder Include="content\lib\common\headjs\" />
+    <Folder Include="content\lib\common\jquery\" />
+    <Folder Include="content\lib\editors\" />
+    <Folder Include="content\lib\editors\wyswig\" />
+    <Folder Include="content\lib\fonts\" />
+    <Folder Include="content\lib\ui\" />
+    <Folder Include="content\lib\ui\bootstrap\" />
+    <Folder Include="content\lib\ui\font-awesome\" />
+    <Folder Include="content\lib\ui\masonry\" />
+    <Folder Include="content\style\" />
+    <Folder Include="content\style\bootstrap\" />
+    <Folder Include="content\style\fonts\" />
+    <Folder Include="routes\" />
+    <Folder Include="views" />
+    <Folder Include="views\head\" />
+    <Folder Include="views\login\" />
+    <Folder Include="views\create\" />
+    <Folder Include="views\public\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
